@@ -1,0 +1,25 @@
+<%= form_for(@liquid_template) do |f| %>
+  <% if @liquid_template.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@liquid_template.errors.count, "error") %> prohibited this liquid_template from being saved:</h2>
+
+      <ul>
+      <% @liquid_template.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_area :label %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

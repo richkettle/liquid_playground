@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @liquid_template.label %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <% template = Liquid::Template.parse(@liquid_template.body) %>
+  <%= simple_format(template.render(@drop)) %>
+</p>
+
+<%= link_to 'Edit', edit_liquid_template_path(@liquid_template) %> |
+<%= link_to 'Back', liquid_templates_path %>
