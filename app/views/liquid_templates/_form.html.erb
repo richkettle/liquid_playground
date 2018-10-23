@@ -1,5 +1,5 @@
 <p>Available Params:</p>
-<%= JSON.pretty_generate(@drop) %>
+<%= JSON.pretty_generate(@drop.to_json) %>
 
 <%= form_for(@liquid_template) do |f| %>
   <% if @liquid_template.errors.any? %>
