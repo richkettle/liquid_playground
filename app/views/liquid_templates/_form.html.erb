@@ -1,3 +1,6 @@
+<p>Available Params:</p>
+<%= JSON.pretty_generate(@drop) %>
+
 <%= form_for(@liquid_template) do |f| %>
   <% if @liquid_template.errors.any? %>
     <div id="error_explanation">
