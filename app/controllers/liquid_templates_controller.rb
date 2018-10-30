@@ -2,7 +2,6 @@ class LiquidTemplatesController < ApplicationController
   before_action :set_liquid_template, only: [:show, :edit, :update, :destroy]
   before_action :set_drop
 
-
   def set_drop
     @drop = {
       "booking" => {
@@ -24,7 +23,7 @@ class LiquidTemplatesController < ApplicationController
           "first_name" => "Richard",
           "last_name" => "Kettle",
           "email" => "richardlkettle@gmail.com",
-          "age" => 25
+          "age" => 32
         },{
           "first_name" => "Paul",
           "last_name" => "Coates",
@@ -34,7 +33,7 @@ class LiquidTemplatesController < ApplicationController
           "first_name" => "Vinh",
           "last_name" => "Luu",
           "email" => "vluu@bookingbug.com",
-          "age" => 32
+          "age" => 87
         }]
       }
     }
