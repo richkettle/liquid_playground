@@ -32,8 +32,8 @@ class LiquidTemplatesController < ApplicationController
           "age" => 55
         },{
           "first_name" => "Vinh",
-          "last_name" => "Lou",
-          "email" => "vlou@bookingbug.com",
+          "last_name" => "Luu",
+          "email" => "vluu@bookingbug.com",
           "age" => 32
         }]
       }
