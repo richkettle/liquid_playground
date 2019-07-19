@@ -1,0 +1,35 @@
+<%= form_for(:login, {}) do |f| %>
+  <% if @errors && @errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :base_url %><br>
+    <%= f.text_field :base_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_id %><br>
+    <%= f.text_field :company_id, value: 37000 %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

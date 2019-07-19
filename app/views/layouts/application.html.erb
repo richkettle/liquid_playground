@@ -7,6 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if session[:jrni_login] %>
+   <%= session[:jrni_login] %>
+    <h1>
+      Currently logged into <%= session[:jrni_login][:site] %> -
+      <%= link_to "Logout", controller: :login, action: :logout %>
+    </h1>
+  <% else %>
+    <h1> Not logged into anything </h1>
+  <% end %>
+
+  <% if @messages && @messages.any? %>
+    <% @messages.each do |message| %>
+      <h2><%= message %></h2>
+    <% end %>
+  <% end %>
 
 <%= yield %>
 

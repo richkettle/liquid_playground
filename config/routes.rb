@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'test_adyen' => 'playground#test_adyen'
 
+  get 'login' => "login#create"
+  post 'login' => "login#login"
+  get 'logout' => "login#logout"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
