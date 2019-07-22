@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   post 'login' => "login#login"
   get 'logout' => "login#logout"
 
+  get 'raw' => "liquid_templates#raw_form"
+  post 'test_raw' => "liquid_templates#test_raw", as: :test_raw
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

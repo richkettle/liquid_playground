@@ -21,7 +21,7 @@ class LoginController < ApplicationController
     if resp.code != "201"
       (@errors ||= []) << "Login failed #{response_json["error"]}"
     else
-      session[:jrni_login] = {auth_token: response_json["auth_token"], site: uri.host}
+      session[:jrni_login] = {auth_token: response_json["auth_token"], site: params[:login][:base_url], company_id: params[:login][:company_id]}
     end
 
     if @errors && @errors.any?

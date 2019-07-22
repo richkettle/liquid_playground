@@ -99,6 +99,39 @@ class LiquidTemplatesController < ApplicationController
     end
   end
 
+  def raw_form
+    @raw_test = OpenStruct.new(entity: "", entity_id: "", template: "")
+  end
+
+  def test_raw
+    @raw_test = OpenStruct.new(params[:test_template])
+
+    require 'net/http'
+    require 'net/https'
+    require 'json'
+
+    url = session[:jrni_login]["site"] + "/api/v1/admin/#{session[:jrni_login]["company_id"]}/liquid_renderer/#{@raw_test.entity}/#{@raw_test.entity_id}"
+    uri = URI(url)
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+
+    data = {"liquid_template" => @raw_test.body}.to_query
+
+    headers = {
+      "App-Id" => "f6b16c23",
+      "App-Key" => "f0bc4f65f4fbfe7b4b3b7264b655f5eb",
+      "Auth-Token" => session[:jrni_login]["auth_token"]
+    }
+
+    debugger
+    resp, data = http.post(uri.path, data, headers)
+
+    @response_json = JSON.parse(resp.body)
+
+    render action: :raw_form
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_liquid_template

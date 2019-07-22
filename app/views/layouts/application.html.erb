@@ -8,9 +8,8 @@
 </head>
 <body>
   <% if session[:jrni_login] %>
-   <%= session[:jrni_login] %>
     <h1>
-      Currently logged into <%= session[:jrni_login][:site] %> -
+      Currently logged into <%= session[:jrni_login]["site"] %> -
       <%= link_to "Logout", controller: :login, action: :logout %>
     </h1>
   <% else %>
