@@ -27,7 +27,7 @@ class LoginController < ApplicationController
     if @errors && @errors.any?
       render :create
     else
-      redirect_to controller: "liquid_templates", action: "new"
+      redirect_to controller: "liquid_templates", action: "raw_form"
     end
   end
 

@@ -123,7 +123,6 @@ class LiquidTemplatesController < ApplicationController
       "Auth-Token" => session[:jrni_login]["auth_token"]
     }
 
-    debugger
     resp, data = http.post(uri.path, data, headers)
 
     @response_json = JSON.parse(resp.body)

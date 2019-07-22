@@ -16,10 +16,8 @@
     <h1> Not logged into anything </h1>
   <% end %>
 
-  <% if @messages && @messages.any? %>
-    <% @messages.each do |message| %>
-      <h2><%= message %></h2>
-    <% end %>
+  <% flash.each do |key, value| %>
+    <%= content_tag :div, value, class: "flash #{key}", style: "background-color: green; padding: 10px;color: white; font-weight: bold;" %>
   <% end %>
 
 <%= yield %>

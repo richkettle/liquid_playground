@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  get 'test_adyen' => 'playground#test_adyen'
-
   get 'login' => "login#create"
   post 'login' => "login#login"
   get 'logout' => "login#logout"
+
+  get '' => "login#create"
 
   get 'raw' => "liquid_templates#raw_form"
   post 'test_raw' => "liquid_templates#test_raw", as: :test_raw
